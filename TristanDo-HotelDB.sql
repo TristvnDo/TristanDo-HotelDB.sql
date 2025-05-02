@@ -1,12 +1,12 @@
 DROP DATABASE IF EXISTS YourNameHotelDB;
 
--- Create database
+
 CREATE DATABASE YourNameHotelDB;
 
--- Use the database
+
 USE YourNameHotelDB;
 
--- Create Guest table
+
 CREATE TABLE Guest (
     GuestID INT PRIMARY KEY AUTO_INCREMENT,
     FirstName VARCHAR(50) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE Guest (
     Phone VARCHAR(15) NOT NULL
 );
 
--- Create RoomType table
+
 CREATE TABLE RoomType (
     RoomTypeID INT PRIMARY KEY AUTO_INCREMENT,
     RoomTypeName VARCHAR(50) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE RoomType (
     ExtraPerson DECIMAL(10,2) NULL
 );
 
--- Create Room table
+
 CREATE TABLE Room (
     RoomNumber INT PRIMARY KEY,
     RoomTypeID INT NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE Room (
     FOREIGN KEY (RoomTypeID) REFERENCES RoomType(RoomTypeID)
 );
 
--- Create Reservation table
+
 CREATE TABLE Reservation (
     ReservationID INT PRIMARY KEY AUTO_INCREMENT,
     GuestID INT NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE Reservation (
     FOREIGN KEY (GuestID) REFERENCES Guest(GuestID)
 );
 
--- Create RoomReservation bridge table
+
 CREATE TABLE RoomReservation (
     RoomReservationID INT PRIMARY KEY AUTO_INCREMENT,
     ReservationID INT NOT NULL,
